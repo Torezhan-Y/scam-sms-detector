@@ -1,10 +1,14 @@
 """Web demo: paste an SMS, get a verdict with reasons.
 
-Run:  python app.py   then open http://127.0.0.1:5000
+Run:  python app.py   then open http://127.0.0.1:8000
+      (port 5000 is taken by AirPlay Receiver on macOS, so 8000 is the default;
+       set PORT=... to change it)
 API:  POST /api/check  {"text": "..."}  ->  JSON verdict
 """
 
 from __future__ import annotations
+
+import os
 
 from flask import Flask, jsonify, render_template, request
 
@@ -45,4 +49,6 @@ def api_check():
 
 
 if __name__ == "__main__":
-    app.run(debug=False)
+    port = int(os.environ.get("PORT", 8000))
+    print(f"Open http://127.0.0.1:{port} in your browser")
+    app.run(host="127.0.0.1", port=port, debug=False)

@@ -60,14 +60,14 @@ Held-out test set (`python train.py`):
 pip install -r requirements.txt
 python data/generate_ru_kz.py   # optional: the CSV is already included
 python train.py                 # trains, prints metrics, saves models/scam_detector.joblib
-python app.py                   # web demo at http://127.0.0.1:5000
+python app.py                   # web demo at http://127.0.0.1:8000
 pytest                          # 13 tests
 ```
 
 **API**
 
 ```bash
-curl -X POST http://127.0.0.1:5000/api/check -H "Content-Type: application/json" \
+curl -X POST http://127.0.0.1:8000/api/check -H "Content-Type: application/json" \
      -d '{"text": "Служба безопасности банка. Продиктуйте код из SMS"}'
 ```
 
