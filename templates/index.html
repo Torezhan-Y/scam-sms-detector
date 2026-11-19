@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Scam SMS Detector</title>
+  <style>
+    body { font-family: system-ui, -apple-system, sans-serif; max-width: 640px; margin: 40px auto; padding: 0 16px; color: #1d1d1f; }
+    h1 { font-size: 24px; margin-bottom: 4px; }
+    p.sub { color: #666; margin-top: 0; }
+    textarea { width: 100%; min-height: 120px; padding: 12px; font: inherit; border: 1px solid #ccc; border-radius: 8px; box-sizing: border-box; }
+    button { margin-top: 12px; padding: 10px 20px; font: inherit; border: 0; border-radius: 8px; background: #1d1d1f; color: #fff; cursor: pointer; }
+    .card { margin-top: 24px; padding: 16px; border-radius: 8px; }
+    .scam { background: #fdecec; border: 1px solid #f5b5b5; }
+    .ok { background: #eaf6ea; border: 1px solid #b5dfb5; }
+    .label { font-weight: 700; font-size: 18px; }
+    .meta { color: #555; font-size: 14px; margin: 6px 0 10px; }
+    ul { margin: 0; padding-left: 20px; }
+  </style>
+</head>
+<body>
+  <h1>Scam SMS Detector</h1>
+  <p class="sub">Вставьте текст SMS — модель проверит, похоже ли оно на мошенничество, и объяснит почему.</p>
+  <form method="post">
+    <textarea name="text" maxlength="1000" placeholder="Например: Ваша карта заблокирована, перейдите по ссылке kaspi-secure.top">{{ text }}</textarea>
+    <button type="submit">Проверить</button>
+  </form>
+
+  {% if result %}
+  <div class="card {{ 'scam' if result.is_scam else 'ok' }}">
+    <div class="label">{{ result.label }}</div>
+    <div class="meta">Итоговый риск: {{ '%.0f' % (result.score * 100) }}% · модель: {{ '%.0f' % (result.ml_probability * 100) }}% · правила: {{ '%.0f' % (result.rules_score * 100) }}%</div>
+    {% if result.reasons %}
+    <ul>{% for r in result.reasons %}<li>{{ r }}</li>{% endfor %}</ul>
+    {% else %}
+    <div>Явных признаков мошенничества не найдено.</div>
+    {% endif %}
+  </div>
+  {% endif %}
+</body>
+</html>

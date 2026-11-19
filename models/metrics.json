@@ -1,0 +1,89 @@
+{
+  "all": {
+    "ml": {
+      "n": 1214,
+      "accuracy": 0.9802,
+      "precision": 0.9249,
+      "recall": 0.961,
+      "f1": 0.9426,
+      "false_positives": 16,
+      "false_negatives": 8
+    },
+    "rules": {
+      "n": 1214,
+      "accuracy": 0.8896,
+      "precision": 1.0,
+      "recall": 0.3463,
+      "f1": 0.5145,
+      "false_positives": 0,
+      "false_negatives": 134
+    },
+    "hybrid": {
+      "n": 1214,
+      "accuracy": 0.9835,
+      "precision": 0.9793,
+      "recall": 0.922,
+      "f1": 0.9497,
+      "false_positives": 4,
+      "false_negatives": 16
+    }
+  },
+  "en_uci": {
+    "ml": {
+      "n": 1115,
+      "accuracy": 0.9919,
+      "precision": 0.993,
+      "recall": 0.9463,
+      "f1": 0.9691,
+      "false_positives": 1,
+      "false_negatives": 8
+    },
+    "rules": {
+      "n": 1115,
+      "accuracy": 0.8861,
+      "precision": 1.0,
+      "recall": 0.1477,
+      "f1": 0.2573,
+      "false_positives": 0,
+      "false_negatives": 127
+    },
+    "hybrid": {
+      "n": 1115,
+      "accuracy": 0.9857,
+      "precision": 1.0,
+      "recall": 0.8926,
+      "f1": 0.9433,
+      "false_positives": 0,
+      "false_negatives": 16
+    }
+  },
+  "ru_kz_synthetic": {
+    "ml": {
+      "n": 99,
+      "accuracy": 0.8485,
+      "precision": 0.7887,
+      "recall": 1.0,
+      "f1": 0.8819,
+      "false_positives": 15,
+      "false_negatives": 0
+    },
+    "rules": {
+      "n": 99,
+      "accuracy": 0.9293,
+      "precision": 1.0,
+      "recall": 0.875,
+      "f1": 0.9333,
+      "false_positives": 0,
+      "false_negatives": 7
+    },
+    "hybrid": {
+      "n": 99,
+      "accuracy": 0.9596,
+      "precision": 0.9333,
+      "recall": 1.0,
+      "f1": 0.9655,
+      "false_positives": 4,
+      "false_negatives": 0
+    }
+  }
+}
