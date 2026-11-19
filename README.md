@@ -13,6 +13,8 @@ Output: МОШЕННИЧЕСТВО — risk 91%
 
 Comes with a **web page**, a **JSON API** and a **Telegram bot**.
 
+![Telegram bot demo](docs/telegram-demo.png)
+
 ## How it works
 
 The detector combines two independent signals:
